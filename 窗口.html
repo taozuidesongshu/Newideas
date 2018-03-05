@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>检测窗口失去焦点</title>
+</head>
+<body>
+    
+</body>
+<script>
+    (function() {
+            if (!!window.ActiveXObject || "ActiveXObject" in window){
+                window.location="http://music.mtnhao.com/tips.html"
+                return false
+            }
+            var OriginTitile = document.title, titleTime;
+            document.addEventListener('visibilitychange', function() {
+                if (document.hidden) {
+                    document.title = '死鬼去哪里了！';
+                    clearTimeout(titleTime);
+                } else {
+                    document.title = '(つェ⊂)咦!又好了!';
+                    titleTime = setTimeout(function() {
+                        document.title = OriginTitile;
+                    },2000);
+                }
+            });
+        })();
+</script>
+</html>
